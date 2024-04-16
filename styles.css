@@ -1,0 +1,105 @@
+#startScreen {
+  text-align: center; /* テキストを中央揃えにする */
+  padding: 50px; /* 内側の余白 */
+}
+
+#startScreen h2 {
+  font-size: 24px; /* タイトルのフォントサイズ */
+  margin-bottom: 20px; /* 下の余白 */
+  color: #333; /* タイトルのテキスト色 */
+}
+
+#startScreen p {
+  text-align: left;
+  font-size: 16px; /* テキストのフォントサイズ */
+  margin-bottom: 20px; /* 下の余白 */
+  color: #666; /* テキストのテキスト色 */
+}
+
+#startButton {
+  padding: 10px 20px; /* ボタンの内側の余白 */
+  font-size: 18px; /* ボタンのフォントサイズ */
+  background-color: #4CAF50; /* ボタンの背景色 */
+  color: white; /* ボタンのテキスト色 */
+  border: none; /* 枠線をなくす */
+  border-radius: 5px; /* 角の丸み */
+  cursor: pointer; /* ポインターを表示 */
+}
+
+#startButton:hover {
+  background-color: #45a049; /* ホバー時の背景色 */
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #deffe3; /* ページの背景色 */
+}
+
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#gameContent {
+  text-align: center;
+}
+
+#question {
+  font-size: 24px; /* 問題文のフォントサイズ */
+  margin-bottom: 20px;
+}
+
+#hint {
+  font-style: italic;
+  color: #888; /* ヒントのテキスト色 */
+  margin-bottom: 20px;
+}
+
+/* inputFieldのスタイル */
+#inputField {
+  width: 450px; /* 幅を調整 */
+  padding: 10px; /* 内側の余白 */
+  border: 2px solid #ababab; /* 枠線のスタイルと色 */
+  border-radius: 5px; /* 枠線の角の丸み */
+  background-color: #ffffff; /* 背景色 */
+  font-size: 16px; /* フォントサイズ */
+}
+
+
+#score {
+  font-size: 18px; /* スコアのフォントサイズ */
+  margin-bottom: 10px;
+}
+
+#timer {
+  font-size: 18px; /* タイマーのフォントサイズ */
+  margin-bottom: 20px;
+}
+
+#endScreen {
+  text-align: center;
+}
+
+#finalScore {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ゲーム終了画面での問題と答えのスタイル */
+#questionsAndAnswers {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* flex-startに変更して左揃えにする */
+}
+
+/* ゲーム終了画面での問題と答えの個別のスタイル */
+#questionsAndAnswers div {
+  margin-bottom: 5px;
+  text-align: left; /* テキストを左寄せにする */
+}
+
+
