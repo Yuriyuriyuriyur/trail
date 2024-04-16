@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Quiz Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="gameContainer">
+    <div id="startScreen">
+      <h2>Welcome to Typing Quiz Game!</h2>
+      <p>How to play:</p>
+      <p>Enter the answers to the questions.</p>
+      <p>A hint will appear after 10 seconds.</p>
+      <p>If you don't know the answer, please enter the question exactly.</p>
+      <button id="startButton">Start Game</button>
+    </div>
+    <div id="gameContent" style="display: none;">
+      <div id="question"></div>
+      <div id="hint"></div>
+      <input type="text" id="inputField" autocomplete="off">
+      <div id="score">Score: <span id="scoreValue">0</span></div>
+      <div id="timer">Time Left: 60s</div>
+    </div>
+    <div id="endScreen" style="display: none;">
+      <h2>Good Job!</h2>
+      <div>Your final score is: <span id="finalScore"></span></div>
+      <div id="questionsAndAnswers"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
