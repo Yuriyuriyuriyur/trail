@@ -94,6 +94,48 @@ function displayQuestion() {
   hintElement.textContent = ''; // ヒントをクリアする
 }
 
+// 正解の音声を再生する関数
+function playCorrectSound() {
+  const audio = new Audio('correct.mp3'); // 正解音声ファイルのパス
+  audio.play();
+}
+
+// 不正解の音声を再生する関数
+function playIncorrectSound() {
+  const audio = new Audio('incorrect.mp3'); // 不正解音声ファイルのパス
+  audio.play();
+}
+
+ // 入力フィールドに入力があったときに実行する処理
+ inputField.addEventListener('input', function(event) {
+  questionStartTime = Date.now(); // 問題の開始時間を更新
+  checkAnswer(); // 答えをチェック
+});
+
+// 入力フィールドでエンターキーが押されたときの処理
+inputField.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // デフォルトのエンターキーの動作を無効化する
+
+    questionStartTime = Date.now(); // 問題の開始時間を更新
+    const userAnswer = inputField.value.trim().toLowerCase();
+    const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+    const questionText = questions[currentQuestionIndex].definition.toLowerCase();
+
+    // ユーザーの回答が正しいかをチェック
+    if (userAnswer === correctAnswer || userAnswer === questionText) {
+      // 正解した場合の処理
+      // スコアの更新などを行う
+      // 正解時の音声を再生
+      playCorrectSound();
+    } else {
+      // 不正解の場合の処理
+      // 不正解時の音声を再生
+      playIncorrectSound();
+    }
+  }
+});
+
 // 答えをチェックする関数
 function checkAnswer() {
   const userAnswer = inputField.value.trim().toLowerCase();
@@ -110,8 +152,8 @@ function checkAnswer() {
     }
     scoreElement.textContent = score; // スコアを更新
 
-     // 問題に正解したら残り時間に2秒追加
-     timeLeft += 1;
+     // 問題に正解したら残り時間に5秒追加
+     timeLeft += 5;
      if (timeLeft > 60) {
        timeLeft = 60; // 残り時間が60秒を超えないように制限
      }
@@ -130,8 +172,14 @@ function checkAnswer() {
       score += timeLeft * 1; // 残り時間をスコアに加算
       endGame(); // ゲームを終了
     }
-  }
+  // 正解時の音声を再生
+  playCorrectSound();
+
 }
+ 
+}
+
+  
 
 // タイマーを更新する関数
 function updateTimer() {
@@ -188,11 +236,4 @@ function endGame() {
     hintElement.style.display = 'none'; // ヒントを非表示にする
 }
 
-
-
-// 入力フィールドに入力があったときに実行する処理
-inputField.addEventListener('input', function(event) {
-  questionStartTime = Date.now(); // 問題の開始時間を更新
-  checkAnswer(); // 答えをチェック
-});
 
