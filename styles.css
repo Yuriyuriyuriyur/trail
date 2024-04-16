@@ -92,6 +92,7 @@ body {
 #questionsAndAnswers {
   margin-top: 20px;
   display: flex;
+  color: chocolate;
   flex-direction: column;
   align-items: flex-start; /* flex-startに変更して左揃えにする */
 }
