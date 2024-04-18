@@ -16,19 +16,33 @@
   color: #666; /* テキストのテキスト色 */
 }
 
-#startButton {
-  padding: 10px 20px; /* ボタンの内側の余白 */
-  font-size: 18px; /* ボタンのフォントサイズ */
-  background-color: #4CAF50; /* ボタンの背景色 */
-  color: white; /* ボタンのテキスト色 */
-  border: none; /* 枠線をなくす */
-  border-radius: 5px; /* 角の丸み */
-  cursor: pointer; /* ポインターを表示 */
+/* EasyボタンとNormalボタンの位置調整 */
+#startScreen {
+  text-align: center; /* テキストを中央揃えにする */
+  padding-top: 50px; /* 上部の余白を追加 */
 }
 
-#startButton:hover {
-  background-color: #45a049; /* ホバー時の背景色 */
+#easyButton,
+#normalButton {
+  display: inline-block; /* ボタンをブロック要素として配置 */
+  padding: 10px 20px; /* パディングを指定 */
+  margin: 10px; /* マージンを指定 */
+  background-color: #b5ff3d; /* ボタンの背景色 */
+  color: #fff; /* テキスト色を白色に設定 */
+  border: none; /* ボーダーを削除 */
+  border-radius: 5px; /* 角丸にする */
+  cursor: pointer; /* カーソルをポインターに設定 */
+  transition: background-color 0.3s; /* ホバー時の背景色の変化を設定 */
 }
+
+#easyButton:hover,
+#normalButton:hover {
+  background-color: #00b71b; /* ホバー時の背景色を変更 */
+}
+
+
+
+
 
 
 body {
