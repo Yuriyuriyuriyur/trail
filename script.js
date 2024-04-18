@@ -1,27 +1,93 @@
-const questions = [
-    { definition: "A small insect that flies and bites", answer: "Mosquito", hint: "It makes a buzzing sound" },
-{ definition: "A sweet, edible fruit produced by a tree", answer: "Apple", hint: "Red, green, or yellow skin" },
-{ definition: "A common domesticated animal kept for companionship or as a pet", answer: "Dog", hint: "Known as man's best friend" },
-{ definition: "A large, strong bird with a hooked beak for tearing flesh", answer: "Eagle", hint: "Symbol of freedom and power" },
-{ definition: "A round object that bounces and is used in many sports", answer: "Ball", hint: "Used in basketball, soccer, and tennis" },
-{ definition: "A long, thin, cylindrical object used for writing or drawing", answer: "Pencil", hint: "Usually made of wood and graphite" },
-{ definition: "A device used for listening to music or audio", answer: "Headphones", hint: "Worn over the ears" },
-{ definition: "A type of vehicle with two wheels that is powered by pedals", answer: "Bicycle", hint: "Used for transportation and exercise" },
-{ definition: "A piece of furniture with a flat top and one or more legs, used for eating or working on", answer: "Table", hint: "Found in kitchens, dining rooms, and offices" },
-{ definition: "A small, flat, thin piece of metal with numbers or letters on it, used to open locks", answer: "Key", hint: "Used to unlock doors and start cars" },
-{ definition: "A round container with a lid used for cooking food", answer: "Pot", hint: "Used to boil water and cook soup" },
-{ definition: "A small, thin piece of metal with a sharp point, used for sewing", answer: "Needle", hint: "Used with thread to sew clothes" },
-{ definition: "A small, portable electronic device used for communication", answer: "Phone", hint: "Can make calls, send messages, and access the internet" },
-{ definition: "A large, strong animal with a trunk and tusks", answer: "Elephant", hint: "Largest land animal" },
-{ definition: "A flying insect known for producing honey", answer: "Bee", hint: "Collects pollen from flowers" },
-{ definition: "A round, flat object used for throwing and catching", answer: "Frisbee", hint: "Thrown in parks and beaches for fun" },
-{ definition: "A small, cylindrical object used for writing or drawing with ink", answer: "Pen", hint: "Comes in different colors" },
-{ definition: "A piece of furniture with a flat top and four legs, used for eating meals", answer: "Chair", hint: "Found around dining tables" },
-{ definition: "A small, thin object used for fastening clothes", answer: "Button", hint: "Sewn onto shirts and jackets" },
-{ definition: "A tool with a sharp blade used for cutting", answer: "Knife", hint: "Used in kitchens for chopping and slicing" },
-  ];
-  
-
+// 問題を直接定義する
+const quizQuestions = {
+    "EASY": [ 
+            { definition: "profit", answer: "profit", hint: "Pronunciation: /ˈprɒfɪt/ Synonyms: earnings, income, gain" },
+            { definition: "liquid", answer: "liquid", hint: "Pronunciation: /ˈlɪkwɪd/ Synonyms: fluid, watery, runny" },
+            { definition: "prove", answer: "prove", hint: "Pronunciation: /pruːv/ Synonyms: show, demonstrate, verify" },
+            { definition: "provide", answer: "provide", hint: "Pronunciation: /prəˈvaɪd/ Synonyms: supply, furnish, offer" },
+            { definition: "right", answer: "right", hint: "Pronunciation: /raɪt/ Synonyms: entitlement, privilege, prerogative" },
+            { definition: "blow", answer: "blow", hint: "Pronunciation: /bləʊ/ Synonyms: gust, breeze, blast" },
+            { definition: "break the habit", answer: "break the habit", hint: "Pronunciation: /breɪk ðə ˈhæbɪt/ Synonyms: quit, overcome, abandon the habit" },
+            { definition: "chemical", answer: "chemical", hint: "Pronunciation: /ˈkɛmɪkəl/ Synonyms: substance, compound, element" },
+            { definition: "chemistry", answer: "chemistry", hint: "Pronunciation: /ˈkɛmɪstri/ Synonyms: properties, composition, makeup" },
+            { definition: "client", answer: "client", hint: "Pronunciation: /ˈklaɪənt/ Synonyms: customer, patron, buyer" },
+            { definition: "come up with", answer: "come up with", hint: "Pronunciation: /kʌm ʌp wɪð/ Synonyms: devise, brainstorm, propose" },
+            { definition: "staff", answer: "staff", hint: "Pronunciation: /stæf/ Synonyms: employees, workforce, personnel" },
+            { definition: "stress", answer: "stress", hint: "Pronunciation: /strɛs/ Synonyms: pressure, tension, strain" },
+            { definition: "such", answer: "such", hint: "Pronunciation: /sʌtʃ/ Synonyms: like, similar, suchlike" },
+            { definition: "surface", answer: "surface", hint: "Pronunciation: /ˈsɜːfɪs/ Synonyms: exterior, outer layer, top" },
+            { definition: "risk", answer: "risk", hint: "Pronunciation: /rɪsk/ Synonyms: danger, hazard, threat" },
+            { definition: "quality", answer: "quality", hint: "Pronunciation: /ˈkwɒlɪti/ Synonyms: standard, grade, excellence" },
+            { definition: "modern", answer: "modern", hint: "Pronunciation: /ˈmɒdən/ Synonyms: contemporary, up-to-date, current" },
+            { definition: "role", answer: "role", hint: "Pronunciation: /rəʊl/ Synonyms: function, duty, purpose" },
+            { definition: "normal", answer: "normal", hint: "Pronunciation: /ˈnɔːməl/ Synonyms: typical, usual, standard" },
+            { definition: "notice", answer: "notice", hint: "Pronunciation: /ˈnəʊtɪs/ Synonyms: observe, perceive, detect" },
+            { definition: "on the other hand", answer: "on the other hand", hint: "Pronunciation: /ɒn ðə ˈʌðə hænd/ Synonyms: conversely, however, nevertheless" },
+            { definition: "announce", answer: "announce", hint: "Pronunciation: /əˈnaʊns/ Synonyms: declare, proclaim, disclose" },
+            { definition: "as long as", answer: "as long as", hint: "Pronunciation: /əz lɒŋ əz/ Synonyms: if, provided that, so long as" },
+            { definition: "attend", answer: "attend", hint: "Pronunciation: /əˈtɛnd/ Synonyms: go to, participate in, be present at" },
+            { definition: "section", answer: "section", hint: "Pronunciation: /ˈsɛkʃən/ Synonyms: part, division, segment" },
+            { definition: "attitude", answer: "attitude", hint: "Pronunciation: /ˈætɪˌtud/ Synonyms: opinion, perspective, viewpoint" },
+            { definition: "behaviors", answer: "behaviors", hint: "Pronunciation: /bɪˈheɪvjərz/ Synonyms: actions, conduct, deeds" },
+            { definition: "multitask", answer: "multitask", hint: "Pronunciation: /ˈmʌltiˌtæsk/ Synonyms: juggle, handle multiple tasks, do several things at once" },
+            { definition: "accurate", answer: "accurate", hint: "Pronunciation: /ˈækjʊrət/ Synonyms: precise, correct, exact" },
+            { definition: "gain", answer: "gain", hint: "Pronunciation: /ɡeɪn/ Synonyms: acquire, obtain, achieve" },
+            { definition: "consistent", answer: "consistent", hint: "Pronunciation: /kənˈsɪstənt/ Synonyms: steady, reliable, uniform" },
+            { definition: "entrepreneur", answer: "entrepreneur", hint: "Pronunciation: /ˌɑːntrəprəˈnɜːr/ Synonyms: businessperson, founder, innovator" },
+            { definition: "chart", answer: "chart", hint: "Pronunciation: /tʃɑːt/ Synonyms: graph, diagram, table" },
+            { definition: "context", answer: "context", hint: "Pronunciation: /ˈkɒntekst/ Synonyms: circumstances, situation, background" },
+            { definition: "italic", answer: "italic", hint: "Pronunciation: /ɪˈtælɪk/ Synonyms: slanted, oblique, inclined" },
+            { definition: "motivation", answer: "motivation", hint: "Pronunciation: /ˌməʊtɪˈveɪʃən/ Synonyms: incentive, drive, encouragement" },
+            { definition: "eventually", answer: "eventually", hint: "Pronunciation: /ɪˈvɛntʃuəli/ Synonyms: ultimately, finally, in the end" },
+            { definition: "besides", answer: "besides", hint: "Pronunciation: /bɪˈsaɪdz/ Synonyms: in addition, moreover, furthermore" },
+            { definition: "vote", answer: "vote", hint: "Pronunciation: /vəʊt/ Synonyms: ballot, cast a ballot, express a choice" }
+    
+        
+    ],
+    "NORMAL": [
+        { "definition": "a substance, such as water, that is not solid or a gas and that can be poured easily", "answer": "liquid", "hint": "Pronunciation: /ˈlɪkwɪd/, Synonyms: fluid, watery, runny" },
+        { "definition": "to show a particular result after a period of time", "answer": "prove", "hint": "Pronunciation: /pruːv/, Synonyms: show, demonstrate, verify" },
+        { "definition": "to give someone something that they need", "answer": "provide", "hint": "Pronunciation: /prəˈvaɪd/, Synonyms: supply, furnish, offer" },
+        { "definition": "a person can expect to be treated in a fair, or legal way, or to have the things that are necessary for life", "answer": "right", "hint": "Pronunciation: /raɪt/, Synonyms: entitlement, privilege, prerogative" },
+        { "definition": "to move and make currents of air, or make something move on a current of air", "answer": "blow", "hint": "Pronunciation: /bləʊ/, Synonyms: gust, breeze, blast" },
+        { "definition": "to stop doing something that you do regularly, especially something that you should not do", "answer": "break the habit", "hint": "Pronunciation: /breɪk ðə ˈhæbɪt/, Synonyms: quit, overcome, abandon the habit" },
+        { "definition": "any basic substance that is used in or produced by a reaction", "answer": "chemical", "hint": "Pronunciation: /ˈkɛmɪkəl/, Synonyms: substance, compound, element" },
+        { "definition": "the basic characteristics of a substance and the ways in which it reacts or combines with other substances", "answer": "chemistry", "hint": "Pronunciation: /ˈkɛmɪstri/, Synonyms: properties, composition, makeup" },
+        { "definition": "a customer or someone who receives services", "answer": "client", "hint": "Pronunciation: /ˈklaɪənt/, Synonyms: customer, patron, buyer" },
+        { "definition": "to suggest or think of an idea or plan", "answer": "come up with", "hint": "Pronunciation: /kʌm ʌp wɪð/, Synonyms: devise, brainstorm, propose" },
+        { "definition": "the group of people who work for an organization", "answer": "staff", "hint": "Pronunciation: /stæf/, Synonyms: employees, workforce, personnel" },
+        { "definition": "great worry caused by a difficult situation, or something that causes this condition", "answer": "stress", "hint": "Pronunciation: /strɛs/, Synonyms: pressure, tension, strain" },
+        { "definition": "of a particular or similar type", "answer": "such", "hint": "Pronunciation: /sʌtʃ/, Synonyms: like, similar, suchlike" },
+        { "definition": "the outer or top part or layer of something", "answer": "surface", "hint": "Pronunciation: /ˈsɜːfɪs/, Synonyms: exterior, outer layer, top" },
+        { "definition": "the possibility of something bad happening", "answer": "risk", "hint": "Pronunciation: /rɪsk/, Synonyms: danger, hazard, threat" },
+        { "definition": "how good or bad something is", "answer": "quality", "hint": "Pronunciation: /ˈkwɒlɪti/, Synonyms: standard, grade, excellence" },
+        { "definition": "designed and made using the most recent ideas and methods", "answer": "modern", "hint": "Pronunciation: /ˈmɒdən/, Synonyms: contemporary, up-to-date, current" },
+        { "definition": "the position or purpose that someone or something has in a situation, society, or relationship", "answer": "role", "hint": "Pronunciation: /rəʊl/, Synonyms: function, duty, purpose" },
+        { "definition": "ordinary or usual; the same as would be expected", "answer": "normal", "hint": "Pronunciation: /ˈnɔːməl/, Synonyms: typical, usual, standard" },
+        { "definition": "to see or become conscious of something or someone", "answer": "notice", "hint": "Pronunciation: /ˈnəʊtɪs/, Synonyms: observe, perceive, detect" },
+        { "definition": "used when you are comparing two different facts or two opposite ways of thinking about a situation", "answer": "on the other hand", "hint": "Pronunciation: /ɒn ðə ˈʌðə hænd/, Synonyms: conversely, however, nevertheless" },
+        { "definition": "to make something known or tell people about something officially", "answer": "announce", "hint": "Pronunciation: /əˈnaʊns/, Synonyms: declare, proclaim, disclose" },
+        { "definition": "to put condition of time on an action", "answer": "as long as", "hint": "Pronunciation: /əz lɒŋ əz/, Synonyms: if, provided that, so long as" },
+        { "definition": "to go to an event, place, etc", "answer": "attend", "hint": "Pronunciation: /əˈtɛnd/, Synonyms: go to, participate in, be present at" },
+        { "definition": "one of the parts that something is divided into", "answer": "section", "hint": "Pronunciation: /ˈsɛkʃən/, Synonyms: part, division, segment" },
+        { "definition": "a feeling or opinion about something or someone, or a way of behaving that is caused by this", "answer": "attitude", "hint": "Pronunciation: /ˈætɪˌtud/, Synonyms: opinion, perspective, viewpoint" },
+        { "definition": "the way that a person, an animal, a substance, etc. behaves in a particular situation or under particular conditions", "answer": "behaviors", "hint": "Pronunciation: /bɪˈheɪvjərz/, Synonyms: actions, conduct, deeds" },
+        { "definition": "to do more than one thing at a time", "answer": "multitask", "hint": "Pronunciation: /ˈmʌltiˌtæsk/, Synonyms: juggle, handle multiple tasks, do several things at once" },
+        { "definition": "correct, exact, and without any mistakes", "answer": "accurate", "hint": "Pronunciation: /ˈækjʊrət/, Synonyms: precise, correct, exact" },
+        { "definition": "to get something that is useful, that gives you an advantage, or that is in some way positive, especially over a period of time", "answer": "gain", "hint": "Pronunciation: /ɡeɪn/, Synonyms: acquire, obtain, achieve" },
+        { "definition": "always behaving or happening in a similar, especially positive, way", "answer": "consistent", "hint": "Pronunciation: /kənˈsɪstənt/, Synonyms: steady, reliable, uniform" },
+        { "definition": "someone who starts their own business, especially when this involves seeing a new idea", "answer": "entrepreneur", "hint": "Pronunciation: /ˌɑːntrəprəˈnɜːr/, Synonyms: businessperson, founder, innovator" },
+        { "definition": "a drawing that shows information in a simple way, often using lines and curves to show amounts", "answer": "chart", "hint": "Pronunciation: /tʃɑːt/, Synonyms: graph, diagram, table" },
+        { "definition": "the text or speech that comes immediately before and after a particular phrase or piece of text and helps to explain its meaning", "answer": "context", "hint": "Pronunciation: /ˈkɒntekst/, Synonyms: circumstances, situation, background" },
+        { "definition": "printed or written in italics", "answer": "italic", "hint": "Pronunciation: /ɪˈtælɪk/, Synonyms: slanted, oblique, inclined" },
+        { "definition": "the need or reason for doing something", "answer": "motivation", "hint": "Pronunciation: /ˌməʊtɪˈveɪʃən/, Synonyms: incentive, drive, encouragement" },
+        { "definition": "in the end, especially after a long time or a lot of effort, problems", "answer": "eventually", "hint": "Pronunciation: /ɪˈvɛntʃuəli/, Synonyms: ultimately, finally, in the end" },
+        { "definition": "in addition to; also", "answer": "besides", "hint": "Pronunciation: /bɪˈsaɪdz/, Synonyms: in addition, moreover, furthermore" },
+        { "definition": "to express your choice or opinion, especially by officially writing a mark on a paper or by raising your hand or speaking in a meeting", "answer": "vote", "hint": "Pronunciation: /vəʊt/, Synonyms: ballot, cast a ballot, express a choice" }
+    ]
+    
+    
+};
 // 現在の問題のインデックス
 let currentQuestionIndex = 0;
 
@@ -46,13 +112,13 @@ let randomQuestionIndex;
 // 正解した問題と答えを記録する配列
 let correctAnswers = [];
 
-// 選択された問題を保持する変数
-let selectedQuestions = [];
+
 
 // 現在の正解数
 let correctCount = 0;
 
-
+// 問題を格納する変数を定義します
+let questions = [];
 
 // HTML要素の取得
 const startButton = document.getElementById('startButton');
@@ -72,59 +138,78 @@ document.addEventListener('DOMContentLoaded', function() {
   // endRoll要素を取得
   const endRoll = document.getElementById('endRoll');
 
+  // EASYボタンのクリックイベントリスナーを追加
+  document.getElementById("easyButton").addEventListener("click", function() {
+    startGame("EASY");
+});
+
+// NORMALボタンのクリックイベントリスナーを追加
+document.getElementById("normalButton").addEventListener("click", function() {
+    startGame("NORMAL");
+});
 // タイマーを開始する関数
 function startTimer() {
     timer = setInterval(updateTimer, 1000);
 }
 
-// スタートボタンがクリックされたときの処理
-startButton.addEventListener('click', function() {
-    // startScreen要素を非表示にする
-    const startScreen = document.getElementById('startScreen');
-    startScreen.style.display = 'none';
-    
-    // gameContent要素を表示する
-    const gameContent = document.getElementById('gameContent');
-    gameContent.style.display = 'block';
-    
-    // 問題を選択して表示する
-    selectedQuestions = selectRandomQuestions();
-    displayQuestion();
-    
-    
 
-    // タイマーを開始
-    startTimer();
-});
-
-// 問題を表示する関数
-function displayQuestion() {
-  const questionNumber = currentQuestionIndex + 1; // 問題番号を計算する
-  questionElement.textContent = `Question ${questionNumber}: ${selectedQuestions[currentQuestionIndex].definition}`;
-  hintElement.textContent = ''; // ヒントをクリアする
+function selectQuestionsByDifficulty(difficulty) {
+    let selectedQuestions = [];
+    if (difficulty === "EASY") {
+        selectedQuestions = quizQuestions["EASY"] || [];
+    } else if (difficulty === "NORMAL") {
+        selectedQuestions = quizQuestions["NORMAL"] || [];
+    }
+     // 問題をシャッフルする
+    return selectedQuestions = shuffleQuestions(selectedQuestions);
 }
 
+
+
+function startGame(difficulty) {
+    const startScreen = document.getElementById('startScreen');
+    startScreen.style.display = 'none';
+
+    const gameContent = document.getElementById('gameContent');
+    gameContent.style.display = 'block';
+
+    questions = selectQuestionsByDifficulty(difficulty); // シャッフル済みの10問題を取得
+
+    displayQuestion();
+
+    startTimer();
+}
+
+// 問題をシャッフルする関数
+function shuffleQuestions(questions) {
+    const shuffledQuestions = [...questions];
+    shuffledQuestions.sort(() => Math.random() - 0.5);
+    return shuffledQuestions;
+}
+
+function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex]; // selectedQuestions から questions に変更
+    questionElement.textContent = currentQuestion.definition;
+    hintElement.textContent = '';
+}
 
 
 
 // スキップボタンがクリックされたときの処理
 skipButton.addEventListener('click', function() {
-    skipQuestion();
+    // スキップ処理を行う
+    // 例えば、currentQuestionIndex をインクリメントして次の問題を表示する
+    currentQuestionIndex++;
+    if (correctCount < questions.length) {
+        displayQuestion(); // 次の問題を表示
+        inputField.value = ''; // 入力フィールドをクリア
+        questionStartTime = Date.now(); // 問題の開始時間を更新
+    } else {
+        endGame(); // 最後の問題の場合はゲームを終了する
+    }
 });
 
-// 問題を選択する関数
-function selectRandomQuestions() {
-    // 問題をシャッフル
-    questions.sort(() => Math.random() - 0.5);
-    // 最初の10問を選択
-    return questions.slice(0, 10);
-}
 
-// 問題を表示する関数
-function displayQuestion() {
-    questionElement.textContent = selectedQuestions[currentQuestionIndex].definition;
-    hintElement.textContent = ''; // ヒントをクリアする
-}
 
 // 正解の音声を再生する関数
 function playCorrectSound() {
@@ -146,37 +231,37 @@ inputField.addEventListener('input', function(event) {
 
 // 入力フィールドでエンターキーが押されたときの処理
 inputField.addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-      event.preventDefault(); // デフォルトのエンターキーの動作を無効化する
-      questionStartTime = Date.now(); // 問題の開始時間を更新
-      const userAnswer = inputField.value.trim().toLowerCase();
-      const correctAnswer = selectedQuestions[currentQuestionIndex].answer.toLowerCase();
-      const questionDefinition = selectedQuestions[currentQuestionIndex].definition.toLowerCase();
-      // ユーザーの回答が正しいかをチェック
-      if (userAnswer === correctAnswer || userAnswer === questionDefinition) {
-          // 正解した場合の処理
-          // スコアの更新などを行う
-          // 正解時の音声を再生
-          playCorrectSound();
-          correctCount++; // 正解数をインクリメント
-          // 次の問題へ移動する
-          currentQuestionIndex++;
-          if (currentQuestionIndex < selectedQuestions.length) {
-              displayQuestion(); // 次の問題を表示
-              inputField.value = ''; // 入力フィールドをクリア
-              questionStartTime = Date.now(); // 問題の開始時間を更新
-          } else {
-              endGame(); // 最後の問題の場合はゲームを終了する
-          }
-      } else {
-          // 不正解の場合の処理
-          // 不正解時の音声を再生
-          playIncorrectSound();
-          // ここで不正解の場合の追加の処理を行う（例えば、不正解カウントのインクリメントなど）
-      }
-  }
-});
-
+    if (event.key === 'Enter') {
+        event.preventDefault(); // デフォルトのエンターキーの動作を無効化する
+        questionStartTime = Date.now(); // 問題の開始時間を更新
+        const userAnswer = inputField.value.trim().toLowerCase();
+        const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+        const questionDefinition = questions[currentQuestionIndex].definition.toLowerCase();
+        // ユーザーの回答が正しいかをチェック
+        if (userAnswer === correctAnswer || userAnswer === questionDefinition) {
+            // 正解した場合の処理
+            // 正解時の音声を再生
+            playCorrectSound();
+            correctCount++; // 正解数をインクリメント
+            // 次の問題へ移動する
+            currentQuestionIndex++;
+            if (correctCount < 10) {
+                displayQuestion(); // 次の問題を表示
+                inputField.value = ''; // 入力フィールドをクリア
+                questionStartTime = Date.now(); // 問題の開始時間を更新
+                correctCount++;
+            } else {
+                endGame(); // 最後の問題の場合はゲームを終了する
+            }
+        } else {
+            // 不正解の場合の処理
+            // 不正解時の音声を再生
+            playIncorrectSound();
+            // ここで不正解の場合の追加の処理を行う（例えば、不正解カウントのインクリメントなど）
+        }
+    }
+  });
+  
 
 
 
@@ -184,37 +269,39 @@ inputField.addEventListener('keypress', function(event) {
 
 // 答えをチェックする関数
 function checkAnswer() {
-  const userAnswer = inputField.value.trim().toLowerCase();
-  const correctAnswer = selectedQuestions[currentQuestionIndex].answer.toLowerCase();
-  const questionText = selectedQuestions[currentQuestionIndex].definition.toLowerCase();
-  // ユーザーの回答が正しいかをチェック
-  if (userAnswer === correctAnswer || userAnswer === questionText) {
-      // ヒント表示前に正解した場合のスコアの計算
-      if (Date.now() - questionStartTime < hintTime * 1000) {
-          score += 10 * bonusMultiplier; // ヒント表示前に正解した場合のスコア
-      } else {
-          score += 10; // 正解した場合のスコア
-      }
-      scoreElement.textContent = score; // スコアを更新
-      // 問題に正解したら残り時間に5秒追加
-      timeLeft += 5;
-      timerElement.textContent = 'Time Left: ' + timeLeft + 's'; // タイマーを更新
-      // 正解した問題を記録
-      correctAnswers.push(selectedQuestions[currentQuestionIndex]);
-      // 正解時の音声を再生
-      playCorrectSound();
-      // 次の問題へ移動する
-      currentQuestionIndex++;
-      if (currentQuestionIndex < selectedQuestions.length) {
-          displayQuestion(); // 次の問題を表示
-          inputField.value = ''; // 入力フィールドをクリア
-          questionStartTime = Date.now(); // 問題の開始時間を更新
-      } else {
-          endGame(); // 最後の問題の場合はゲームを終了する
-      }
-  } 
+    const userAnswer = inputField.value.trim().toLowerCase();
+    const correctAnswer = questions[currentQuestionIndex].answer.toLowerCase();
+    const questionText = questions[currentQuestionIndex].definition.toLowerCase();
+    // ユーザーの回答が正しいかをチェック
+    if (userAnswer === correctAnswer || userAnswer === questionText) {
+        // ヒント表示前に正解した場合のスコアの計算
+        if (Date.now() - questionStartTime < hintTime * 1000) {
+            score += 10 * bonusMultiplier; // ヒント表示前に正解した場合のスコア
+        } else {
+            score += 10; // 正解した場合のスコア
+        }
+        scoreElement.textContent = score; // スコアを更新
+        // 問題に正解したら残り時間に5秒追加
+        timeLeft += 5;
+        timerElement.textContent = 'Time Left: ' + timeLeft + 's'; // タイマーを更新
+        // 正解した問題を記録
+        correctAnswers.push(questions[currentQuestionIndex]);
+        // 正解時の音声を再生
+        playCorrectSound();
+        // 次の問題へ移動する
+        currentQuestionIndex++;
+        if (correctCount < 10) {
+            displayQuestion(); // 次の問題を表示
+            inputField.value = ''; // 入力フィールドをクリア
+            questionStartTime = Date.now(); // 問題の開始時間を更新
+            correctCount++;
+        } else {
+            endGame(); // 最後の問題の場合はゲームを終了する
+        }
+    } else {
+        
+    }
 }
-
 
 // タイマーを更新する関数
 function updateTimer() {
@@ -222,7 +309,7 @@ function updateTimer() {
     const currentTime = Date.now();
     const elapsedTime = Math.floor((currentTime - questionStartTime) / 1000); // 経過時間（秒）
     // ヒントを表示する時間になったらヒントを表示
-    if (elapsedTime === hintTime) {
+    if (elapsedTime >= hintTime) {
         displayHint();
     }
     // 時間切れの場合はゲームを終了
@@ -237,7 +324,7 @@ function updateTimer() {
 
 // ヒントを表示する関数
 function displayHint() {
-    hintElement.textContent = "Hint: " + selectedQuestions[currentQuestionIndex].hint;
+    hintElement.textContent = "Hint: " + questions[currentQuestionIndex].hint;
 }
 
 // ゲーム中に正解されたすべての問題と答えを表示する関数
@@ -271,18 +358,18 @@ function endGame() {
   hintElement.style.display = 'none'; // ヒントを非表示にする
   skipButton.style.display = 'none';
   
-  // スコアが200以上の場合のみエンドロールを表示
-        if (score >= 200) {
+  // スコアが250以上の場合のみエンドロールを表示
+        if (score >= 250) {
+            questionsAndAnswersElement.style.display = 'none'
             // 音楽を再生
             const bgMusic = document.getElementById('bgMusic');
             bgMusic.play();
             // エンドロールを表示
             endRoll.style.display = 'block';
         } else {
-            // スコアが200未満の場合はエンドロールを非表示にする
+            // スコアが250未満の場合はエンドロールを非表示にする
             endRoll.style.display = 'none';
         }
     }
+})
 
-    // 以降のコードも修正せずに続行してください
-});
