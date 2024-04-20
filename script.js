@@ -40,7 +40,28 @@ const quizQuestions = {
             { definition: "motivation", answer: "motivation", hint: "Pronunciation: /ˌməʊtɪˈveɪʃən/ Synonyms: incentive, drive, encouragement" },
             { definition: "eventually", answer: "eventually", hint: "Pronunciation: /ɪˈvɛntʃuəli/ Synonyms: ultimately, finally, in the end" },
             { definition: "besides", answer: "besides", hint: "Pronunciation: /bɪˈsaɪdz/ Synonyms: in addition, moreover, furthermore" },
-            { definition: "vote", answer: "vote", hint: "Pronunciation: /vəʊt/ Synonyms: ballot, cast a ballot, express a choice" }
+            { definition: "vote", answer: "vote", hint: "Pronunciation: /vəʊt/ Synonyms: ballot, cast a ballot, express a choice" },
+            //Great Expectations
+            {"definition": "blacksmith", "answer": "blacksmith", "hint": "(n), /ˈblækˌsmɪθ/, Synonyms: metalworker, smith, forger"},
+            {"definition": "candle", "answer": "candle", "hint": "(n), /ˈkændl/, Synonyms: taper, light, torch" },
+            {"definition": "cheek", "answer": "cheek", "hint": "(n), /tʃiːk/,  Synonyms: cheekbone, jowl, side"},
+            {"definition": "cloak", "answer": "cloak", "hint": "(n), /kloʊk/, Synonyms: cape, mantle, shroud" },
+            {"definition": "convict", "answer": "convict", "hint": "(n), /ˈkɒnvɪkt/, Synonyms: prisoner, inmate, offender"},
+            {"definition": "disgust", "answer": "disgust", "hint": "(n), /dɪsˈɡʌst/, Synonyms: revulsion, aversion, repulsion"},
+            {"definition": "expectation", "answer": "expectation", "hint": "(n), /ˌɪkspɛkˈteɪʃən/, Synonyms: anticipation, hope, outlook"},
+            {"definition": "file", "answer": "file", "hint": "(n), /faɪl/, Synonyms: document, dossier, folder"},
+            {"definition": "firmly", "answer": "firmly", "hint": "(adv), /ˈfɜːrmlɪ/, Synonyms: securely, tightly, strongly"},
+            {"definition": "forge", "answer": "forge", "hint": "(n), /fɔːrdʒ/, Synonyms: smithy, workshop, foundry"},
+            {"definition": "gravy", "answer": "gravy", "hint": "(n), /ˈɡreɪvi/, Synonyms: sauce, jus, broth"},
+            {"definition": "hang", "answer": "hang", "hint": "(v), /hæŋ/, Synonyms: suspend, dangle, swing"},
+            {"definition": "housekeeper", "answer": "housekeeper", "hint": "(n), /ˈhaʊsˌkiːpər/, Synonyms: maid, domestic, caretaker"},
+            {"definition": "invest", "answer": "invest", "hint": "(v), /ɪnˈvɛst/, Synonyms: put money into, fund, finance"},
+            {"definition": "nod", "answer": "nod", "hint": "(v, )/nɒd/, Synonyms: shake"},
+            {"definition": "partner", "answer": "partner", "hint": "(n), /ˈpɑːtnər/, Synonyms: associate, collaborator, colleague"},
+            {"definition": "pie", "answer": "pie", "hint": "(n), /paɪ/, Synonyms: tart, pastry, quiche"},
+            {"definition": "roast", "answer": "roast", "hint": "(v), /roʊst/, Synonyms: grill, bake, broil"},
+            {"definition": "rum", "answer": "rum", "hint": "(n), /rʌm/, Synonyms: liquor, spirit, booze"},
+            {"definition": "scold", "answer": "scold", "hint": "(v), /skoʊld/, Synonyms: admonish"}
     
         
     ],
@@ -83,7 +104,29 @@ const quizQuestions = {
         { "definition": "the need or reason for doing something", "answer": "motivation", "hint": "Pronunciation: /ˌməʊtɪˈveɪʃən/, Synonyms: incentive, drive, encouragement" },
         { "definition": "in the end, especially after a long time or a lot of effort, problems", "answer": "eventually", "hint": "Pronunciation: /ɪˈvɛntʃuəli/, Synonyms: ultimately, finally, in the end" },
         { "definition": "in addition to; also", "answer": "besides", "hint": "Pronunciation: /bɪˈsaɪdz/, Synonyms: in addition, moreover, furthermore" },
-        { "definition": "to express your choice or opinion, especially by officially writing a mark on a paper or by raising your hand or speaking in a meeting", "answer": "vote", "hint": "Pronunciation: /vəʊt/, Synonyms: ballot, cast a ballot, express a choice" }
+        { "definition": "to express your choice or opinion, especially by officially writing a mark on a paper or by raising your hand or speaking in a meeting", "answer": "vote", "hint": "Pronunciation: /vəʊt/, Synonyms: ballot, cast a ballot, express a choice" },
+        //Great Ecpectations
+        {"definition": "someone whose job is to make and repair things made of iron", "answer": "blacksmith", "hint": "(n), /ˈblækˌsmɪθ/, Synonyms: metalworker, smith, forger"},
+        {"definition": "a round stick of wax which burns to give light", "answer": "candle", "hint": "(n), /ˈkændl/, Synonyms: taper, light, torch" },
+        {"definition": "the side of your face", "answer": "cheek", "hint": "(n), /tʃiːk/,  Synonyms: cheekbone, jowl, side"},
+        {"definition": "a sleeveless coat that hangs loosely from the shoulders", "answer": "cloak", "hint": "(n), /kloʊk/, Synonyms: cape, mantle, shroud" },
+        {"definition": "a criminal who has been found guilty of a crime and sent to prison", "answer": "convict", "hint": "(n), /ˈkɒnvɪkt/, Synonyms: prisoner, inmate, offender"},
+        {"definition": "a strong feeling of dislike", "answer": "disgust", "hint": "(n), /dɪsˈɡʌst/, Synonyms: revulsion, aversion, repulsion"},
+        {"definition": "something expected; a belief that something will happen", "answer": "expectation", "hint": "(n), /ˌɪkspɛkˈteɪʃən/, Synonyms: anticipation, hope, outlook"},
+        {"definition": "a metal tool with a rough surface for cutting or smoothing things", "answer": "file", "hint": "(n), /faɪl/, Synonyms: document, dossier, folder"},
+        {"definition": "in a strong and determined way", "answer": "firmly", "hint": "(adv), /ˈfɜːrmlɪ/, Synonyms: securely, tightly, strongly"},
+        {"definition": "a place, used by a blacksmith, where metals are heated and shaped", "answer": "forge", "hint": "(n), /fɔːrdʒ/, Synonyms: smithy, workshop, foundry"},
+        {"definition": "a thick sauce poured over meat", "answer": "gravy", "hint": "(n), /ˈɡreɪvi/, Synonyms: sauce, jus, broth"},
+        {"definition": "to kill someone by hanging them from a rope around the neck", "answer": "hang", "hint": "(v), /hæŋ/, Synonyms: suspend, dangle, swing"},
+        {"definition": "a person employed to manage a house", "answer": "housekeeper", "hint": "(n), /ˈhaʊsˌkiːpər/, Synonyms: maid, domestic, caretaker"},
+        {"definition": "to put money into a bank or business", "answer": "invest", "hint": "(v), /ɪnˈvɛst/, Synonyms: put money into, fund, finance"},
+        {"definition": "to move your head up and down in agreement", "answer": "nod", "hint": "(v, )/nɒd/, Synonyms: shake"},
+        {"definition": "a person who works with another in a shared business", "answer": "partner", "hint": "(n), /ˈpɑːtnər/, Synonyms: associate, collaborator, colleague"},
+        {"definition": "a fruit or meat dish, which can be eaten hot or cold", "answer": "pie", "hint": "(n), /paɪ/, Synonyms: tart, pastry, quiche"},
+        {"definition": "to cook meat in the oven", "answer": "roast", "hint": "(v), /roʊst/, Synonyms: grill, bake, broil"},
+        {"definition": "a strong alcoholic drink, often drunk hot", "answer": "rum", "hint": "(n), /rʌm/, Synonyms: liquor, spirit, booze"},
+        {"definition": "to speak angrily to someone, because they have done something wrong", "answer": "scold", "hint": "(v), /skoʊld/, Synonyms: admonish"}
+
     ]
     
     
@@ -98,7 +141,7 @@ let score = 0;
 let timeLeft = 60;
 
 // ヒントが表示されるまでの時間（秒）
-const hintTime = 10;
+const hintTime = 5;
 
 // ヒント表示前に正解した場合のスコア倍率
 const bonusMultiplier = 1.5;
