@@ -402,7 +402,7 @@ function endGame() {
   skipButton.style.display = 'none';
   
   // スコアが250以上の場合のみエンドロールを表示
-        if (score >= 250) {
+        if (score >= 2500) {
             questionsAndAnswersElement.style.display = 'none'
             // 音楽を再生
             const bgMusic = document.getElementById('bgMusic');
