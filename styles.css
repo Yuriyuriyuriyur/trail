@@ -1,5 +1,5 @@
 /* 画面の幅が650px以下の場合のスタイル, スマホ用 */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
   #startScreen {
     text-align: center; /* テキストを中央揃えにする */
     padding: 20px; /* 内側の余白 */
@@ -27,10 +27,26 @@
   #normalButton {
     padding: 8px 16px; /* パディングを調整 */
     margin: 5px; /* マージンを縮小 */
+    background-color: #b5ff3d; /* ボタンの背景色 */
+    color: #fff; /* テキスト色を白色に設定 */
+    border: none; /* ボーダーを削除 */
+    border-radius: 5px; /* 角丸にする */
+    cursor: pointer; /* カーソルをポインターに設定 */
+    transition: background-color 0.3s; /* ホバー時の背景色の変化を設定 */
   }
+
+  #easyButton:hover,
+#normalButton:hover {
+  background-color: #016610; /* ホバー時の背景色を変更 */
+}
 
   #gameContent {
     padding: 20px; /* ゲームコンテンツの余白を縮小 */
+  }
+
+  #question {
+    font-size: 12px; /* 問題文のフォントサイズ */
+    margin-bottom: 10px;
   }
 
   #inputField {
