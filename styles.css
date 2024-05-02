@@ -1,28 +1,100 @@
+/* 画面の幅が650px以下の場合のスタイル, スマホ用 */
+@media screen and (max-width: 600px) {
+  #startScreen {
+    text-align: center; /* テキストを中央揃えにする */
+    padding: 20px; /* 内側の余白 */
+  }
+
+  #startScreen h2 {
+    font-size: 20px; /* タイトルのフォントサイズを調整 */
+    margin-bottom: 10px; /* 下の余白を縮小 */
+    color: #333; /* タイトルのテキスト色 */
+  }
+
+  #startScreen p {
+    text-align: left;
+    font-size: 14px; /* テキストのフォントサイズを調整 */
+    margin-bottom: 10px; /* 下の余白を縮小 */
+    color: #666; /* テキストのテキスト色 */
+  }
+
+  /* EasyボタンとNormalボタンの位置調整 */
+  #startScreen {
+    padding-top: 20px; /* 上部の余白を縮小 */
+  }
+
+  #easyButton,
+  #normalButton {
+    padding: 8px 16px; /* パディングを調整 */
+    margin: 5px; /* マージンを縮小 */
+  }
+
+  #gameContent {
+    padding: 20px; /* ゲームコンテンツの余白を縮小 */
+  }
+
+  #inputField {
+    width: calc(100% - 20px); /* 入力フィールドの幅を調整 */
+    max-width: 100%; /* 幅が親要素を超えないように設定 */
+    font-size: 14px; /* フォントサイズを調整 */
+  }
+
+  #score {
+    font-size: 14px; /* スコアのフォントサイズを調整 */
+    margin-bottom: 5px; /* 下の余白を縮小 */
+  }
+
+  #timer {
+    font-size: 14px; /* タイマーのフォントサイズを調整 */
+    margin-bottom: 10px; /* 下の余白を縮小 */
+  }
+
+  #finalScore {
+    font-size: 14px; /* 最終スコアのフォントサイズを調整 */
+    font-weight: bold; /* 太字 */
+  }
+
+  /* ゲーム終了画面での問題と答えの個別のスタイル */
+  #questionsAndAnswers div {
+    margin-bottom: 3px; /* 下の余白を縮小 */
+    font-size: 14px; /* フォントサイズを調整 */
+  }
+
+  /* エンドロール内のテキストコンテンツ */
+  #titlecontent {
+    font-size: 14px; /* フォントサイズを調整 */
+  }
+
+
+}
+
+/* 画面の幅が651px以上の場合のスタイル */
+@media screen and (min-width: 651px) {
+  #startScreen {
+    text-align: center; /* テキストを中央揃えにする */
+    padding: 50px; /* 内側の余白 */
+  }
+
+  #startScreen h2 {
+    font-size: 24px; /* タイトルのフォントサイズ */
+    margin-bottom: 20px; /* 下の余白 */
+    color: #333; /* タイトルのテキスト色 */
+  }
+
+  #startScreen p {
+    text-align: left;
+    font-size: 16px; /* テキストのフォントサイズ */
+    margin-bottom: 20px; /* 下の余白 */
+    color: #666; /* テキストのテキスト色 */
+  }
+
+
+  /* EasyボタンとNormalボタンの位置調整 */
 #startScreen {
   text-align: center; /* テキストを中央揃えにする */
-  padding: 50px; /* 内側の余白 */
-}
+  padding-top: 50px; /* 上部の余白を追加 */}
 
-#startScreen h2 {
-  font-size: 24px; /* タイトルのフォントサイズ */
-  margin-bottom: 20px; /* 下の余白 */
-  color: #333; /* タイトルのテキスト色 */
-}
-
-#startScreen p {
-  text-align: left;
-  font-size: 16px; /* テキストのフォントサイズ */
-  margin-bottom: 20px; /* 下の余白 */
-  color: #666; /* テキストのテキスト色 */
-}
-
-/* EasyボタンとNormalボタンの位置調整 */
-#startScreen {
-  text-align: center; /* テキストを中央揃えにする */
-  padding-top: 50px; /* 上部の余白を追加 */
-}
-
-#easyButton,
+  #easyButton,
 #normalButton {
   display: inline-block; /* ボタンをブロック要素として配置 */
   padding: 10px 20px; /* パディングを指定 */
@@ -32,18 +104,12 @@
   border: none; /* ボーダーを削除 */
   border-radius: 5px; /* 角丸にする */
   cursor: pointer; /* カーソルをポインターに設定 */
-  transition: background-color 0.3s; /* ホバー時の背景色の変化を設定 */
-}
+  transition: background-color 0.3s; /* ホバー時の背景色の変化を設定 */}
 
-#easyButton:hover,
+  #easyButton:hover,
 #normalButton:hover {
   background-color: #00b71b; /* ホバー時の背景色を変更 */
 }
-
-
-
-
-
 
 body {
   font-family: Arial, sans-serif;
@@ -132,6 +198,7 @@ body {
   transform: translate(-50%, -50%); /* 中央揃え */
   font-size: 350%; /* フォントサイズを350%に設定 */
   font-weight: bold; /* 太字 */
+  color: #8D3043;
   text-align: justify; /* テキストを均等に配置 */
   overflow: hidden; /* コンテナからはみ出るコンテンツを非表示 */
   transform-origin: center center;; /* 変形の原点を設定 */
@@ -158,7 +225,7 @@ body {
   left: 50%; /* 左端をビューポートの中央に配置 */
   transform: translateX(-50%); /* 中央揃え */
   animation: scroll 94s ease 4s infinite; /* アニメーションを適用 */
-  color: rgb(#8D3043);
+  color: rgb(#8d3030);
   font-size: 18px; /* テキストの文字サイズを大きくする */
 }
 
@@ -172,3 +239,13 @@ body {
 #endRoll {
   display: none; /* 初期状態では非表示 */
 }
+
+
+
+  
+
+  
+}
+
+
+
