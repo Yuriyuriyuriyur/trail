@@ -138,7 +138,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 // 制限時間（秒）
-let timeLeft = 5;
+let timeLeft = 60;
 
 // ヒントが表示されるまでの時間（秒）
 const hintTime = 5;
@@ -326,7 +326,7 @@ function checkAnswer() {
         }
         scoreElement.textContent = score; // スコアを更新
         // 問題に正解したら残り時間に5秒追加
-        timeLeft += 5;
+        timeLeft += 20;
         timerElement.textContent = 'Time Left: ' + timeLeft + 's'; // タイマーを更新
         // 正解した問題を記録
         correctAnswers.push(questions[currentQuestionIndex]);
