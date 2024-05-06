@@ -1,5 +1,5 @@
-/* 画面の幅が650px以下の場合のスタイル, スマホ用 */
-@media screen and (max-width: 650px) {
+/* 画面の幅が600px以下の場合のスタイル, スマホ用 */
+@media screen and (max-width: 600px) {
   #startScreen {
     text-align: center; /* テキストを中央揃えにする */
     padding: 20px; /* 内側の余白 */
@@ -39,6 +39,15 @@
 #normalButton:hover {
   background-color: #016610; /* ホバー時の背景色を変更 */
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b1ec77; /* ページの背景色 */}
+
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;}
 
   #gameContent {
     padding: 20px; /* ゲームコンテンツの余白を縮小 */
@@ -48,7 +57,11 @@
     font-size: 20px; /* 問題文のフォントサイズ */
     margin-bottom: 10px;
   }
-
+  #hint {
+    font-style: italic;
+    color: #888; /* ヒントのテキスト色 */
+    margin-bottom: 12px;
+  }
   #inputField {
     width: calc(100% - 20px); /* 入力フィールドの幅を調整 */
     max-width: 100%; /* 幅が親要素を超えないように設定 */
@@ -80,12 +93,21 @@
   #titlecontent {
     font-size: 14px; /* フォントサイズを調整 */
   }
-
+  #rankingContainer {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    z-index: 9999;
+    display: none;
+  }
 
 }
 
-/* 画面の幅が651px以上の場合のスタイル */
-@media screen and (min-width: 651px) {
+/* 画面の幅が601px以上の場合のスタイル */
+@media screen and (min-width: 601px) {
   #startScreen {
     text-align: center; /* テキストを中央揃えにする */
     padding: 50px; /* 内側の余白 */
