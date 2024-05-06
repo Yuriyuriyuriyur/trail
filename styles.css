@@ -256,11 +256,16 @@ body {
   display: none; /* 初期状態では非表示 */
 }
 
-
-
-  
-
-  
+#rankingContainer {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  z-index: 9999;
+  display: none;
+}
 }
 
 
