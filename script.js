@@ -138,7 +138,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 // 制限時間（秒）
-let timeLeft = 60;
+let timeLeft = 5;
 
 // ヒントが表示されるまでの時間（秒）
 const hintTime = 5;
@@ -154,7 +154,8 @@ let randomQuestionIndex;
 
 // 正解した問題と答えを記録する配列
 let correctAnswers = [];
-
+// 最終スコア
+let finalScore = 0;
 
 
 // 現在の正解数
@@ -389,7 +390,7 @@ function displayCorrectAnswers() {
 // ゲーム終了時の処理を行う関数
 function endGame() {
   clearInterval(timer); // タイマーを停止
-  score += timeLeft * 1; // 残り時間をスコアに加算
+  finalScore = score + timeLeft * 1; // 最終スコアを計算
   endScreen.style.display = 'block'; // ゲーム終了画面を表示
   finalScoreElement.textContent = score; // 最終スコアを表示
   displayCorrectAnswers(); // 正解された問題と答えを表示
@@ -402,7 +403,7 @@ function endGame() {
   skipButton.style.display = 'none';
   
   // スコアが250以上の場合のみエンドロールを表示
-        if (score >= 2500) {
+        if (finalScore >= 2500) {
             questionsAndAnswersElement.style.display = 'none'
             // 音楽を再生
             const bgMusic = document.getElementById('bgMusic');
@@ -416,3 +417,41 @@ function endGame() {
     }
 })
 
+document.addEventListener('DOMContentLoaded', function() {
+    
+  
+    // ランキングボタンの要素を取得
+    const rankingButton = document.getElementById('rankingButton');
+    
+  
+    // ランキングボタンがクリックされたときの処理
+    rankingButton.addEventListener('click', function() {
+      // スコアを取得し、ローカルストレージに保存
+      const playerName = prompt('Please enter your name:');
+      const currentDate = new Date().toLocaleString(); // 現在の時刻と日付
+      saveScore(playerName, finalScore, currentDate);
+      showRanking();
+      // ボタンを無効化する
+      rankingButton.disabled = true;
+
+     
+    });})
+ // ランキングを表示する関数
+function showRanking() {
+    // ローカルストレージからスコアを取得してランキング表示
+    const ranking = JSON.parse(localStorage.getItem('ranking')) || [];
+    ranking.sort((a, b) => b.score - a.score); // スコアの降順にソート
+    const rankingList = ranking.map(entry => `${entry.name}: ${entry.score} (${entry.date})`).join('<br>');
+    const rankingElement = document.createElement('div');
+    rankingElement.innerHTML = `<h3>Ranking:</h3>${rankingList}`;
+    document.getElementById('endScreen').appendChild(rankingElement);
+}
+
+ // スコアと日時をローカルストレージに保存する関数
+function saveScore(name, score, date) {
+    const ranking = JSON.parse(localStorage.getItem('ranking')) || [];
+    ranking.push({ name, score, date });
+    ranking.sort((a, b) => b.score - a.score); // スコアの降順にソート
+    const topRanking = ranking.slice(0, 5);
+    localStorage.setItem('ranking', JSON.stringify(topRanking));
+}
