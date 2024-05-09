@@ -41,7 +41,7 @@
 }
 body {
   font-family: Arial, sans-serif;
-  background-color: #b1ec77; /* ページの背景色 */}
+  background-color: #caffd3; /* ページの背景色 */}
 
 #gameContainer {
   display: flex;
@@ -89,10 +89,61 @@ body {
     font-size: 14px; /* フォントサイズを調整 */
   }
 
-  /* エンドロール内のテキストコンテンツ */
+  /* 答えのスタイル */
+.answer {
+  color: red; /* 答えのテキストを赤色にする */
+}
+
+  /* エンドロール全体のコンテナ */
   #titlecontent {
-    font-size: 14px; /* フォントサイズを調整 */
-  }
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 30em; /* 幅を18emに設定 */
+  height: 80em; /* 高さを50emに設定 */
+  bottom: 0; /* 下端に配置 */
+  left: 50%; /* 横方向に中央に配置 */
+  transform: translate(-50%, -50%); /* 中央揃え(中央に表示される) */
+  font-size: 350%; /* フォントサイズを350%に設定 */
+  font-weight: bold; /* 太字 */
+  color: #8D3043;
+  text-align: center; /* テキストを中央揃えにする */
+  transform-origin: center center;; /* 変形の原点を設定 */
+  transform: perspective(300px) rotateX(25deg); /* 3D視点とX軸まわりの回転変形を適用 */
+  background-color: #caffd3; /* 背景色 */
+}
+
+/* エンドロールの上部に重ねて表示される半透明のグラデーション */
+#titlecontent:after {
+  position: absolute; /* 親要素に対して絶対位置に配置 */
+  content: ' '; /* 擬似要素に内容を追加 */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 60%; /* 高さの60%までの範囲にグラデーションを適用 */
+  background-image: linear-gradient(top, rgb(17, 17, 17) 0%, transparent 100%); /* 縦方向のグラデーション */
+  pointer-events: none; /* マウスイベントを無効にする */
+}
+
+/* エンドロール内のテキストコンテンツ */
+#titlecontent {
+  position: absolute; /* 親要素に対して絶対位置に配置 */
+  top: 100%; /* 親要素の下端の外側に配置 */
+  left: 50%; /* 左端をビューポートの中央に配置 */
+  transform: translateX(-50%); /* 中央揃え */
+  animation: scroll 94s ease 4s infinite; /* アニメーションを適用 */
+  color: rgb(#680363);
+  font-size: 18px; /* テキストの文字サイズを大きくする */
+}
+
+/* スクロールアニメーションのキーフレーム */
+@keyframes scroll {
+  0% { top: 100%; } /* 開始時のスタイル */
+  100% { top: -170%; } /* 終了時のスタイル */
+}
+
+/* エンドスクロール */
+#endRoll {
+  display: none; /* 初期状態では非表示 */
+}
   #rankingContainer {
     position: fixed;
     top: 20px;
@@ -151,7 +202,7 @@ body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #deffe3; /* ページの背景色 */
+  background-color: #caffd3; /* ページの背景色 */
 }
 
 #gameContainer {
@@ -228,31 +279,31 @@ body {
 }
 
 /* エンドロール全体のコンテナ */
-#titles {
-  width: 30em; /* 幅を18emに設定 */
-  height: 50em; /* 高さを50emに設定 */
+#titlecontent {
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 30em; /* 幅を18emに設定 */
+  height: 80em; /* 高さを50emに設定 */
   bottom: 0; /* 下端に配置 */
   left: 50%; /* 横方向に中央に配置 */
-  transform: translate(-50%, -50%); /* 中央揃え */
+  transform: translate(-50%, -50%); /* 中央揃え(中央に表示される) */
   font-size: 350%; /* フォントサイズを350%に設定 */
   font-weight: bold; /* 太字 */
   color: #8D3043;
-  text-align: justify; /* テキストを均等に配置 */
-  overflow: hidden; /* コンテナからはみ出るコンテンツを非表示 */
+  text-align: center; /* テキストを中央揃えにする */
   transform-origin: center center;; /* 変形の原点を設定 */
   transform: perspective(300px) rotateX(25deg); /* 3D視点とX軸まわりの回転変形を適用 */
-  background-color: rgba(254, 253, 253, 0.5); /* 背景色を半透明の黒色に設定 */
+  background-color: #caffd3; /* 背景色 */
 }
 
 /* エンドロールの上部に重ねて表示される半透明のグラデーション */
-#titles:after {
+#titlecontent:after {
   position: absolute; /* 親要素に対して絶対位置に配置 */
   content: ' '; /* 擬似要素に内容を追加 */
   left: 0;
   right: 0;
   top: 0;
   bottom: 60%; /* 高さの60%までの範囲にグラデーションを適用 */
-  background-image: linear-gradient(top, rgba(0, 0, 0, 1) 0%, transparent 100%); /* 縦方向のグラデーション */
+  background-image: linear-gradient(top, rgb(17, 17, 17) 0%, transparent 100%); /* 縦方向のグラデーション */
   pointer-events: none; /* マウスイベントを無効にする */
 }
 
@@ -263,7 +314,7 @@ body {
   left: 50%; /* 左端をビューポートの中央に配置 */
   transform: translateX(-50%); /* 中央揃え */
   animation: scroll 94s ease 4s infinite; /* アニメーションを適用 */
-  color: rgb(#8d3030);
+  color: rgb(#680363);
   font-size: 18px; /* テキストの文字サイズを大きくする */
 }
 
