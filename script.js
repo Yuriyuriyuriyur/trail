@@ -131,38 +131,18 @@ const quizQuestions = {
     
     
 };
-// 現在の問題のインデックス
-let currentQuestionIndex = 0;
 
-// スコア
-let score = 0;
-
-// 制限時間（秒）
-let timeLeft = 60;
-
-// ヒントが表示されるまでの時間（秒）
-const hintTime = 5;
-
-// ヒント表示前に正解した場合のスコア倍率
-const bonusMultiplier = 1.5;
-
-// 問題の開始時間を記録する変数
-let questionStartTime = Date.now();
-
-// ランダムに選択された問題のインデックスを記録する変数
-let randomQuestionIndex;
-
-// 正解した問題と答えを記録する配列
-let correctAnswers = [];
-// 最終スコア
-let finalScore = 0;
-
-
-// 現在の正解数
-let correctCount = 0;
-
-// 問題を格納する変数を定義します
-let questions = [];
+let currentQuestionIndex = 0;// 現在の問題のインデックス
+let score = 0;// スコア
+let timeLeft = 60;// 制限時間（秒）
+const hintTime = 5;// ヒントが表示されるまでの時間（秒）
+const bonusMultiplier = 1.5;// ヒント表示前に正解した場合のスコア倍率
+let questionStartTime = Date.now();// 問題の開始時間を記録する変数
+let randomQuestionIndex;// ランダムに選択された問題のインデックスを記録する変数
+let correctAnswers = [];// 正解した問題と答えを記録する配列
+let finalScore = 0;// 最終スコア
+let correctCount = 0;// 現在の正解数
+let questions = [];// 問題を格納する変数を定義します
 
 // HTML要素の取得
 const startButton = document.getElementById('startButton');
@@ -218,6 +198,10 @@ function startGame(difficulty) {
     gameContent.style.display = 'block';
 
     questions = selectQuestionsByDifficulty(difficulty); // シャッフル済みの10問題を取得
+    
+    // ページの読み込みが完了した時点でテキストボックスにフォーカスを当てる
+    document.getElementById('inputField').focus();
+    
 
     displayQuestion();
 
@@ -239,11 +223,16 @@ function displayQuestion() {
 
 
 
+
 // スキップボタンがクリックされたときの処理
 skipButton.addEventListener('click', function() {
     // スキップ処理を行う
-    // 例えば、currentQuestionIndex をインクリメントして次の問題を表示する
+    timeLeft -= 5;// 残り時間をn秒減らす
+    // currentQuestionIndex をインクリメントして次の問題を表示する
     currentQuestionIndex++;
+    if (currentQuestionIndex === questions.length) { // 問題が配列の最後まで到達した場合
+        currentQuestionIndex = 0; // 最初の問題に戻る
+    }
     if (correctCount < questions.length) {
         displayQuestion(); // 次の問題を表示
         inputField.value = ''; // 入力フィールドをクリア
@@ -289,6 +278,9 @@ inputField.addEventListener('keypress', function(event) {
             correctCount++; // 正解数をインクリメント
             // 次の問題へ移動する
             currentQuestionIndex++;
+            if (currentQuestionIndex === questions.length) { // 問題が配列の最後まで到達した場合
+                currentQuestionIndex = 0; // 最初の問題に戻る
+            }
             if (correctCount < 10) {
                 displayQuestion(); // 次の問題を表示
                 inputField.value = ''; // 入力フィールドをクリア
@@ -357,7 +349,7 @@ function updateTimer() {
         displayHint();
     }
     // 時間切れの場合はゲームを終了
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
         clearInterval(timer); // タイマーを停止
         score += timeLeft * 1; // 残り時間をスコアに加算
         endGame(); // ゲームを終了
@@ -392,7 +384,7 @@ function endGame() {
   clearInterval(timer); // タイマーを停止
   finalScore = score + timeLeft * 1; // 最終スコアを計算
   endScreen.style.display = 'block'; // ゲーム終了画面を表示
-  finalScoreElement.textContent = score; // 最終スコアを表示
+  finalScoreElement.textContent = finalScore; // 最終スコアを表示
   displayCorrectAnswers(); // 正解された問題と答えを表示
   // 問題文、テキストボックス、残り時間、スコア、ヒントを非表示にする
   questionElement.style.display = 'none';
@@ -402,8 +394,8 @@ function endGame() {
   hintElement.style.display = 'none'; // ヒントを非表示にする
   skipButton.style.display = 'none';
   
-  // スコアが250以上の場合のみエンドロールを表示
-        if (finalScore >= 2500) {
+  // スコアが-50以下の場合のみエンドロールを表示
+        if (finalScore <= -50) {
             questionsAndAnswersElement.style.display = 'none'
             // 音楽を再生
             const bgMusic = document.getElementById('bgMusic');
@@ -411,7 +403,7 @@ function endGame() {
             // エンドロールを表示
             endRoll.style.display = 'block';
         } else {
-            // スコアが250未満の場合はエンドロールを非表示にする
+            // スコアが他の場合はエンドロールを非表示にする
             endRoll.style.display = 'none';
         }
     }
