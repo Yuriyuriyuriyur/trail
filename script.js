@@ -395,7 +395,7 @@ function endGame() {
   skipButton.style.display = 'none';
   
   // スコアが-50以下の場合のみエンドロールを表示
-        if (finalScore <= -50) {
+        if (finalScore <= -20) {
             questionsAndAnswersElement.style.display = 'none'
             // 音楽を再生
             const bgMusic = document.getElementById('bgMusic');
